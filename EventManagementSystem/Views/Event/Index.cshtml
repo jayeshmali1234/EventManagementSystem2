@@ -1,0 +1,54 @@
+﻿@model EventManagementSystem.Models.EventModel
+
+@{
+    ViewBag.Title = "Events";
+}
+<style>
+    label{
+        font-size:large;
+    }
+</style>
+<h2>Events</h2>
+
+@using (Html.BeginForm("Create", "Event", FormMethod.Post))
+            {
+                <div class="row" style="background-color:aqua" >
+
+                    <div class="col-md-3">
+                        <label>Name</label>
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" ,@placeholder="Write Your Name..."})
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>StartTime</label>
+                        @Html.TextBoxFor(m => m.StartTime, new { @class = "form-control" ,@type= "datetime-local" })
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>EndTime</label>
+                        @Html.TextBoxFor(m => m.EndTime, new { @class = "form-control" , @type = "datetime-local" })
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>Description</label>
+                        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" , @placeholder = "Write Description Here..." })
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>Noification</label>
+                        @Html.TextBoxFor(m => m.Notification, new { @class = "form-control" })
+                    </div>
+                </div>
+                
+                    <br />
+                    <br />
+                <div class="col-md-3">
+                    <button type="reset" class="btn btn-danger">Reset</button>
+                    <button type="submit" class="btn btn-warning">Create</button>
+                </div>
+            }
+<p>
+    <h2>
+        @Html.ActionLink("ListofRecord", "GetList", new { @class = "form-control", @type = "link" })
+     <h2>
+</p>
